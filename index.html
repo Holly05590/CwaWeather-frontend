@@ -123,15 +123,17 @@
 
             others.forEach(f => {
                 let p = getTimePeriod(f.startTime);
+                let isTomorrow = false;
 
                 // 判斷該預報的日期是否跟今天不同，不同就是明天
                 const fDate = new Date(f.startTime);
                 if (fDate.getDate() !== todayDate) {
                     p = "明天" + p;
+                    isTomorrow = true;
                 }
 
                 scrollContainer.innerHTML += `
-                            <div class="mini-card">
+                            <div class="mini-card ${isTomorrow ? 'tomorrow-card' : ''}">
                                 <div class="mini-time">${p}</div>
                                 <div class="mini-icon">${getWeatherIcon(f.weather)}</div>
                                 <div class="mini-temp">${f.minTemp}° - ${f.maxTemp}°</div>

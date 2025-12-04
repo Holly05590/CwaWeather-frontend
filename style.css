@@ -1,4 +1,5 @@
 :root {
+    --ac-pink: #FF9AA2;
     --ac-green: #7DE1A9;
     --ac-bg-pattern: #8FD8AF;
     --ac-cream: #FFFEF2;
@@ -18,7 +19,7 @@
 
 body {
     font-family: 'Zen Maru Gothic', sans-serif;
-    background-color: var(--ac-green);
+    background-color: var(--ac-pink);
     /* 更細緻的斜紋背景 */
     background-image:
         repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255, 255, 255, 0.2) 20px, rgba(255, 255, 255, 0.2) 40px);
@@ -209,7 +210,7 @@ body {
 }
 
 .mini-time {
-    background: var(--ac-green);
+    background: var(--ac-pink);
     color: white;
     padding: 3px 10px;
     border-radius: 10px;
@@ -237,7 +238,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--ac-green);
+    background: var(--ac-pink);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -246,15 +247,114 @@ body {
 }
 
 /* 響應式設計 */
-/* 當螢幕寬度小於320px時，heroCard卡片改成上下排列 */
-@media (max-width: 320px) {
+/* 當螢幕寬度小於428px時 */
+@media (max-width: 428px) {
+    .container {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .status-bar {
+        padding: 10px 15px;
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+    }
+
+    .location-pill {
+        font-size: 1rem;
+        padding: 4px 12px;
+    }
+
+    .update-pill {
+        font-size: 0.7rem;
+        padding: 3px 8px;
+    }
+
     #heroCard {
         display: flex;
         flex-direction: column;
-        gap: 15px;
+        gap: 12px;
     }
 
     .hero-card {
+        margin-bottom: 0;
+        padding: 20px 15px;
+        border-radius: 25px;
+    }
+
+    .hero-icon {
+        font-size: 4rem;
+    }
+
+    .hero-temp {
+        font-size: 3.5rem;
+    }
+
+    .hero-desc {
+        font-size: 1.2rem;
         margin-bottom: 15px;
+    }
+
+    .advice-grid {
+        gap: 10px;
+        margin-top: 15px;
+        padding-top: 15px;
+    }
+
+    .advice-icon {
+        font-size: 1.5rem;
+        margin-bottom: 3px;
+    }
+
+    .advice-text {
+        font-size: 1.1rem;
+    }
+
+    .section-title {
+        font-size: 1rem;
+        margin-left: 5px;
+        margin-bottom: 10px;
+    }
+
+    /* 稍後預報改為上下排列 */
+    .scroll-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 12px;
+        padding-bottom: 0;
+    }
+
+    /* 非明日卡片：全寬 */
+    .mini-card:not(.tomorrow-card) {
+        min-width: auto;
+        width: 100%;
+        padding: 15px 12px;
+        border-radius: 20px;
+        flex-shrink: 1;
+    }
+
+    /* 明日卡片配對成上下排列 */
+    .tomorrow-card {
+        width: calc(50% - 6px);
+        padding: 15px 12px;
+        border-radius: 20px;
+        flex-shrink: 1;
+    }
+
+    .mini-time {
+        font-size: 0.7rem;
+        padding: 2px 8px;
+    }
+
+    .mini-icon {
+        font-size: 2rem;
+        margin: 3px 0;
+    }
+
+    .mini-temp {
+        font-size: 1rem;
     }
 }
